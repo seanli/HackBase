@@ -1,0 +1,27 @@
+# Static Files #
+static/
+
+# Media Files #
+media/
+
+# Index Files #
+fundstrap/indexes/
+
+# Setting Files #
+settings_extra.py
+
+# Install Files #
+src/
+build/
+
+# Compiled Files #
+*.pyc
+
+# Log Files #
+*.log
+
+# Mac Files #
+.DS_Store
+
+# Virtual Environment #
+venv
