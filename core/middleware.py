@@ -8,7 +8,7 @@ from django.http import HttpResponsePermanentRedirect
 
 class FacebookMiddleware(object):
 
-    '''def build_token_url(self, oauth_code, redirect_uri):
+    def build_token_url(self, oauth_code, redirect_uri):
         token_url = 'https://graph.facebook.com/oauth/access_token?' + urllib.urlencode(
             {
                 'client_id': settings.FACEBOOK_APP_ID,
@@ -73,19 +73,20 @@ class FacebookMiddleware(object):
             user.display_name = '%s %s' % (user_data['first_name'], user_data['last_name'])
             user.set_password(random_string())
             user.save()
-        return user'''
+        return user
 
     def process_request(self, request):
         state = request.GET.get('state', '')
+        # Check if request is from Facebook
         if state == 'facebook':
-            print 'cool'
-            '''oauth_code = request.GET.get('code', '')
+            oauth_code = request.GET.get('code', '')
             if oauth_code != '':
                 redirect_uri = get_domain(request) + '/'
                 token_url = self.build_token_url(oauth_code, redirect_uri)
-                access_token, _ = self.get_access_token_expire(token_url)
+                access_token, expires = self.get_access_token_expire(token_url)
                 # Store access token in session
                 request.session['facebook_access_token'] = access_token
+                request.session['facebook_expires'] = expires
                 user_data = self.get_current_user_data(access_token)
                 if user_data is not None:
                     if request.user.is_authenticated():
@@ -94,4 +95,4 @@ class FacebookMiddleware(object):
                     else:
                         user = self.facebook_connect(user_data)
                         instant_login(request, user)
-                    return HttpResponsePermanentRedirect(redirect_uri + '#')'''
+                    return HttpResponsePermanentRedirect(redirect_uri + '#')

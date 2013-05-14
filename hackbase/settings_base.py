@@ -67,7 +67,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'core.middleware.FacebookMiddleware',
+    'core.middleware.FacebookMiddleware',
 )
 
 ROOT_URLCONF = '%s.urls' % PROJECT_DIR
