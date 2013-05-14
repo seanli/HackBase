@@ -4,14 +4,11 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+{{ user.display_name }}
+<a href="/logout">Logout</a>
+{% else %}
 <a href="/facebook-login">Facebook Connect</a>
-
-<script>
-
-	$('#facebook-connect').click(function() {
-		alert('tets');
-	});
-
-</script>
+{% endif %}
 
 {% endblock %}

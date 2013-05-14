@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 import urllib
 from core.utilities import get_domain
 from django.conf import settings
+from django.contrib import auth
 
 
 def index(request):
@@ -22,3 +23,8 @@ def facebook_login(request):
         }
     )
     return HttpResponseRedirect(login_link)
+
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
