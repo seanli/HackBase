@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -11,6 +12,11 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -60,8 +66,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'core.middleware.FacebookMiddleware',
 )
 
 ROOT_URLCONF = '%s.urls' % PROJECT_DIR
@@ -83,10 +89,10 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'south',
     'core',
 )
 
@@ -118,3 +124,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_USER_MODEL = 'core.User'

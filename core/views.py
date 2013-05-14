@@ -1,14 +1,24 @@
-from django.http import HttpResponse
-from django.utils import simplejson
-from firebase import firebase
+from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+import urllib
+from core.utilities import get_domain
+from django.conf import settings
 
 
 def index(request):
-    '''fb_obj = firebase.FirebaseApplication('https://hackbase.firebaseio.com/')
-    data = {'name': 'Sean Li', 'age': 22, 'email': 'lishang106@gmail.com'}
-    result = fb_obj.put('/users/', 'sean', data)
-    return HttpResponse('DONE')'''
     context = RequestContext(request)
     return render_to_response('index.html', context)
+
+
+def facebook_login(request):
+    login_link = 'https://www.facebook.com/dialog/oauth?' + urllib.urlencode(
+        {
+            'client_id': settings.FACEBOOK_APP_ID,
+            'redirect_uri': get_domain(request) + '/',
+            'response_type': 'code',
+            'scope': 'email',
+            'state': 'facebook',
+        }
+    )
+    return HttpResponseRedirect(login_link)
