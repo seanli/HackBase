@@ -4,24 +4,6 @@
 
 {% block content %}
 
-{% verbatim %}
-
-<script type="text/x-handlebars">
-  <h2>Welcome to Ember.js</h2>
-
-  {{outlet}}
-</script>
-
-<script type="text/x-handlebars" data-template-name="index">
-  <ul>
-  {{#each item in model}}
-    <li>{{item}}</li>
-  {{/each}}
-  </ul>
-</script>
-
-{% endverbatim %}
-
 {% if user.is_authenticated %}
 {{ user.display_name }}
 <a class="btn btn-default" href="/logout">Logout</a>
