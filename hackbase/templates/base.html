@@ -14,14 +14,15 @@
   <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/style.less" />
 
   <script src="{{ STATIC_URL }}js/libs/less.js"></script>
-  <script src="{{ STATIC_URL }}js/libs/ember-1.0.0-rc.3.js"></script>
-  <script src="{{ STATIC_URL }}js/libs/handlebars-1.0.0-rc.3.js"></script>
-  <script src="{{ STATIC_URL }}js/libs/jquery-1.9.1.js"></script>
-  <script src="{{ STATIC_URL }}js/app.js"></script>
 
 </head>
 
 <body>
   {% block content %}{% endblock %}
+
+  <script src="{{ STATIC_URL }}js/libs/jquery-1.9.1.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/handlebars-1.0.0-rc.3.js"></script>
+  <script src="{{ STATIC_URL }}js/libs/ember-1.0.0-rc.3.js"></script>
+  <script src="{{ STATIC_URL }}js/app.js"></script>
 </body>
 </html>
