@@ -4,6 +4,15 @@
 
 {% block content %}
 
+{% verbatim %}
+
+<div class="well container"ng-app="project">
+  <div ng-view>
+  </div>
+</div>
+
+{% endverbatim %}
+
 {% if user.is_authenticated %}
 {{ user.display_name }}
 <a class="btn btn-default" href="/logout">Logout</a>
