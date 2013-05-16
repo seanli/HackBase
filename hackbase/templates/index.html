@@ -6,9 +6,9 @@
 
 {% if user.is_authenticated %}
 {{ user.display_name }}
-<a href="/logout">Logout</a>
+<a class="btn btn-default" href="/logout">Logout</a>
 {% else %}
-<a href="/facebook-login">Facebook Connect</a>
+<a class="btn btn-primary" href="/facebook-login">Facebook Connect</a>
 {% endif %}
 
 {% endblock %}
