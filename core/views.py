@@ -5,6 +5,7 @@ import urllib
 from core.utilities import get_domain
 from django.conf import settings
 from django.contrib import auth
+from core.decorators import ajax_endpoint
 
 
 def index(request):
@@ -28,3 +29,10 @@ def facebook_login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+
+@ajax_endpoint
+def test_endpoint(request):
+    response = {}
+    response['value'] = 12
+    return response, 200
