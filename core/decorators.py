@@ -3,6 +3,7 @@ from core.utilities import build_response
 from core.utilities import get_client_ip
 
 
+# Attaches important meta data for an AJAX request
 def ajax_endpoint(view_func):
     def wrapped(request, *args, **kwargs):
         benchmark_start = time.time()
