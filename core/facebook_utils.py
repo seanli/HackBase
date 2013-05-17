@@ -30,9 +30,9 @@ def get_access_token_expire(token_url):
         return None, None
 
 
-def get_current_user_data(access_token):
+def get_facebook_user_data(access_token, facebook_id='me'):
     try:
-        graph_url = 'https://graph.facebook.com/me?' + urllib.urlencode(
+        graph_url = 'https://graph.facebook.com/' + facebook_id + '?' + urllib.urlencode(
             {
                 'access_token': access_token,
             }
