@@ -1,10 +1,11 @@
 import time
-from core.utilities import build_response
-from core.utilities import get_client_ip
+from core.utils.network import build_response
+from core.utils.network import get_client_ip
 
 
 # Attaches important meta data for an AJAX request
 def ajax_endpoint(view_func):
+
     def wrapped(request, *args, **kwargs):
         benchmark_start = time.time()
         response, status = view_func(request)
@@ -25,4 +26,5 @@ def ajax_endpoint(view_func):
         meta_data['execution_time'] = benchmark_end - benchmark_start
         response['meta'] = meta_data
         return build_response(response, status=status)
+
     return wrapped

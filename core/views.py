@@ -2,10 +2,11 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 import urllib
-from core.utilities import get_domain
+from core.utils.network import get_domain
 from django.conf import settings
 from django.contrib import auth
 from core.decorators import ajax_endpoint
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
@@ -31,6 +32,7 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 
+@csrf_exempt
 @ajax_endpoint
 def test_endpoint(request):
     response = {}
