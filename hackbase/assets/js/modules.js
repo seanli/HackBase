@@ -1,4 +1,6 @@
 // This is a module for cloud persistance in mongolab - https://mongolab.com
+// This is a service, controllers can share them and they are usually
+// sourced from some external resource.
 angular.module('mongolab', ['ngResource']).
   factory('Project', function($resource) {
     var Project = $resource('https://api.mongolab.com/api/1/databases' +
