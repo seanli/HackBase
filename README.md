@@ -1,4 +1,11 @@
+# HackBase Django
+
 This is a basic boilerplate for quick development and deployment with Django and Heroku.
+
+## Features:
+
+* Facebook integration middleware and utilities
+* 
 
 Setting up PostgreSQL on Mac:
 
