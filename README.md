@@ -1,4 +1,6 @@
-Setting up PostgreSQL on mac:
+This is a basic boilerplate for quick development and deployment with Django and Heroku.
+
+Setting up PostgreSQL on Mac:
 
 * Download http://postgresapp.com/
 * Restart your Mac
