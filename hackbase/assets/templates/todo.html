@@ -4,7 +4,7 @@
     <input placeholder="What needs to be done?" ng-model="newTodo" autofocus>
   </form>
   <ul>
-    <li ng-repeat="todo in todos">
+    <li ng-repeat="todo in todos" ng-animate="'fade'">
       <input type="checkbox" ng-model="todo.done">
       <span class="done-{{todo.done}}">{{todo.text}}</span>
     </li>

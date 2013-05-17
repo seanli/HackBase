@@ -4,47 +4,40 @@ app.directive(directives);
 directives.todo = function() {
   return {
     restrict: 'E',
-    transclude: false,
+    transclude: true,
     scope: {},
     templateUrl: '/static/templates/todo.html',
-    controller: function($scope, $element, angularFire) {
+    controller: function($scope, $element, $attrs, angularFire, angularFireCollection) {
       var url = 'https://test123412.firebaseio.com/' + 1 + '/todo';
-      var promise = angularFire(url, $scope, 'todos');
+      $scope.todos = angularFireCollection(url);
 
-      var startWatch = function ($scope) {
-        // registers a callback whenever the scope member 'todos' changes
-        $scope.addTodo = function () {
-          if (!$scope.newTodo.length) {
-            return;
-          }
+      $scope.addTodo = function () {
+        if (!$scope.newTodo.length) {
+          return;
+        }
 
-          $scope.todos.push({
-            text: $scope.newTodo,
-            done: false
-          });
+        $scope.todos.add({
+          text: $scope.newTodo,
+          done: false
+        }, function() {});
 
-          $scope.newTodo = '';
-        };
+        $scope.newTodo = '';
+      };
 
-        $scope.editTodo = function (todo) {
-          $scope.editedTodo = todo;
-        };
+      $scope.editTodo = function (todo) {
+        $scope.editedTodo = todo;
+      };
 
-        $scope.doneEditing = function (todo) {
-          $scope.editedTodo = null;
-          if (!todo.title) {
-            $scope.removeTodo(todo);
-          }
-        };
+      $scope.doneEditing = function (todo) {
+        $scope.editedTodo = null;
+        if (!todo.title) {
+          $scope.removeTodo(todo);
+        }
+      };
 
-        $scope.removeTodo = function (todo) {
-          $scope.todos.splice($scope.todos.indexOf(todo), 1);
-        };
-      }
-
-      promise.then(function(todos) {
-        startWatch($scope);
-      });
+      $scope.removeTodo = function (todo) {
+        $scope.todos.splice($scope.todos.indexOf(todo), 1);
+      };
     },
   }
 };
