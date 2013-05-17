@@ -45,6 +45,22 @@ def get_facebook_user_data(access_token, facebook_id='me'):
         return None
 
 
+def get_facebook_friend_data(access_token, fields='id,name'):
+    try:
+        graph_url = 'https://graph.facebook.com/me/friends?' + urllib.urlencode(
+            {
+                'access_token': access_token,
+                'fields': fields,
+            }
+        )
+        conn = urllib.urlopen(graph_url)
+        resp = conn.read()
+        conn.close()
+        return simplejson.loads(resp)
+    except:
+        return None
+
+
 def unbind_facebook_account(user_data):
     try:
         user = User.objects.get(facebook_id=user_data['id'])
