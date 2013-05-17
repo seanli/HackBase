@@ -1,7 +1,7 @@
-from core.network_utils import get_domain
-from core.auth_utils import instant_login
+from core.utils.network import get_domain
+from core.utils.auth import instant_login
 from django.http import HttpResponsePermanentRedirect
-from facebook_utils import (build_token_url, get_access_token_expire,
+from core.utils.facebook import (build_token_url, get_access_token_expire,
     get_facebook_user_data, unbind_facebook_account, bind_facebook_account,
     facebook_connect)
 

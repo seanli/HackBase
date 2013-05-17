@@ -2,7 +2,7 @@ import urllib
 from django.conf import settings
 from django.utils import simplejson
 from core.models import User
-from core.auth_utils import random_string
+from core.utils.auth import random_string
 
 
 def build_token_url(oauth_code, redirect_uri):

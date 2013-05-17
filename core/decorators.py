@@ -1,6 +1,6 @@
 import time
-from core.network_utils import build_response
-from core.network_utils import get_client_ip
+from core.utils.network import build_response
+from core.utils.network import get_client_ip
 
 
 # Attaches important meta data for an AJAX request

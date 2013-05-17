@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 import urllib
-from core.network_utils import get_domain
+from core.utils.network import get_domain
 from django.conf import settings
 from django.contrib import auth
 from core.decorators import ajax_endpoint
