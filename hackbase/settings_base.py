@@ -76,6 +76,23 @@ ROOT_URLCONF = '%s.urls' % PROJECT_DIR
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_DIR
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'core.context_processors.settings',
+)
+
+# For core.context_processors.settings
+TEMPLATE_VISIBLE_SETTINGS = (
+    'DEBUG',
+    'ENVIRONMENT',
+)
+
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
 )
@@ -128,3 +145,5 @@ LOGGING = {
 }
 
 AUTH_USER_MODEL = 'core.User'
+
+LOGIN_URL = '/login/'
