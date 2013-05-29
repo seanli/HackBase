@@ -1,3 +1,5 @@
+{% load compress %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +12,22 @@
   <meta name="keywords" content="">
   <meta name="author" content="">
 
-  <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/bootstrap/bootstrap.less" />
+  <!-- Stylesheets -->
+  {% compress css %}
+  <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css" />
+  {% endcompress %}
 
-  <script src="{{ STATIC_URL }}js/libs/less.js"></script>
-  <script src="{{ STATIC_URL }}js/libs/jquery.js"></script>
+  <!-- LESS -->
+  {% if DEBUG %}
+  <link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}less/bootstrap/bootstrap.less" />
+  <script src="{{ STATIC_URL }}js/vendor/less.js"></script>
+  {% endif %}
+
+  <!-- Javascripts -->
+  {% compress js %}
+  <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
+  <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
+  {% endcompress %}
 
 </head>
 
