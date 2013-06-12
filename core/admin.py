@@ -7,7 +7,7 @@ class UserAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('email', 'facebook_id', 'tz_offset', 'display_name')
+            'fields': ('email', 'facebook_id', 'tz_offset')
         }),
         ('Status', {
             'classes': ('collapse',),

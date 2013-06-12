@@ -19,7 +19,6 @@ class Migration(SchemaMigration):
             ('is_active', self.gf('django.db.models.fields.BooleanField')(default=True)),
             ('tz_offset', self.gf('django.db.models.fields.IntegerField')(default=0)),
             ('facebook_id', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
-            ('display_name', self.gf('django.db.models.fields.CharField')(max_length=200)),
         ))
         db.send_create_signal(u'core', ['User'])
 
@@ -74,7 +73,6 @@ class Migration(SchemaMigration):
         },
         u'core.user': {
             'Meta': {'object_name': 'User', 'db_table': "'table_user'"},
-            'display_name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
             'email': ('django.db.models.fields.EmailField', [], {'unique': 'True', 'max_length': '200', 'db_index': 'True'}),
             'facebook_id': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'groups': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['auth.Group']", 'symmetrical': 'False', 'blank': 'True'}),

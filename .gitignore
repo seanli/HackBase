@@ -5,7 +5,7 @@ static/
 media/
 
 # Index Files #
-fundstrap/indexes/
+hackbase/indexes/
 
 # Setting Files #
 settings_extra.py

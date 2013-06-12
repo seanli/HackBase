@@ -19,7 +19,8 @@ def ajax_endpoint(view_func):
             meta_data['session_id'] = request.COOKIES['sessionid']
         if 'csrftoken' in request.COOKIES:
             meta_data['csrf_token'] = request.COOKIES['csrftoken']
-        meta_data['user_agent'] = request.META['HTTP_USER_AGENT']
+        if 'HTTP_USER_AGENT' in request.META:
+            meta_data['user_agent'] = request.META['HTTP_USER_AGENT']
         if request.user.is_authenticated():
             meta_data['current_user_id'] = request.user.id
         meta_data['status'] = status
