@@ -34,7 +34,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     tz_offset = models.IntegerField(default=0)
     facebook_id = models.CharField(max_length=200, blank=True, null=True)
 
-
     def __unicode__(self):
         return self.email
 
