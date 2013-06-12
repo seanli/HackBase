@@ -5,7 +5,6 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-{{ user.display_name }}
 <a class="btn btn-default" href="/logout">Logout</a>
 {% else %}
 <a class="btn btn-primary" href="/facebook-login">Facebook Connect</a>
