@@ -83,6 +83,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'django.core.context_processors.csrf',
     'django.contrib.messages.context_processors.messages',
     'core.context_processors.settings',
 )
