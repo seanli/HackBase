@@ -1,4 +1,4 @@
-This is a basic boilerplate for quick development and deployment with Django and Heroku.
+This is a basic boilerplate for quick development and deployment with Django and Heroku. [![Live Demo](https://usekite.com/live-demo-button.png)](https://localhost/deploy)
 
 Setting up PostgreSQL on Mac:
 
